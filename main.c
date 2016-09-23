@@ -9,15 +9,18 @@ int main(){
 
   SIZE =100;
 
-  int age,limit=2;
-  int matrix[SIZE][SIZE];
+  int age,i,limit=2;
+
+  int **matrix = (int **)malloc(SIZE * sizeof(int*));
+    for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
 
    initscr();
 
-  matrix[10][10]=10;
+  //matrix[10][10]=2;
   for(age=1;age < limit;++age){
 
-    void refreshmatrix(matrix);
+    refreshmatrix(matrix);
+
     refresh();
     getch();
   }

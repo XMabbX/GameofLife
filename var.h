@@ -1,5 +1,5 @@
 int SIZE;
 
-void refreshmatrix(int);
+void refreshmatrix(int);//Funcio que rep 
 
 void checkcell(int);
