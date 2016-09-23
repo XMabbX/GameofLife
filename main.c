@@ -7,7 +7,8 @@
 
 int main(){
 
-  SIZE =100;
+  printf("Insert the size of the universe.");
+  scanf("%d", &SIZE);
 
   int age,i,limit=2;
 
