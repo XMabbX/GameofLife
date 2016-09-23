@@ -1,3 +1,5 @@
-#define SIZE
+int SIZE;
 
-int init(void);
+void refreshmatrix(int);
+
+void checkcell(int);

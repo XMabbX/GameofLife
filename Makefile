@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -I/usr/include/ -I.
 LDFLAGS = -lncurses
 DEPS = var.h
-OBJ = main.o init.o
+OBJ = main.o 
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $<

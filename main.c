@@ -7,21 +7,22 @@
 
 int main(){
 
+  SIZE =100;
 
-  int array = init();
+  int age,limit=2;
+  int matrix[SIZE][SIZE];
 
+   initscr();
 
+  matrix[10][10]=10;
+  for(age=1;age < limit;++age){
 
-  initscr();
-  //int array[100][100];
+    void refreshmatrix(matrix);
+    refresh();
+    getch();
+  }
 
-  mvaddch(10,10,'X');
-
-  refresh();
-  printf("%d",array[1][1]);
-  refresh();
-  getch();			/* Wait for user input */
   endwin();
 
-    return 0;
+  return 0;
 }
