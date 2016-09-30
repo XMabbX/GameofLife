@@ -4,30 +4,25 @@
 void getNewMatrix(int** matrix, int SIZE){
 
 	int new_matrix[SIZE][SIZE];
-  int x,y;
-	for(x=0;x<SIZE;++x)
-	{
-		for(y=0;y<SIZE;++y)
-		{
+	int x,y,f,c,i,j; 	// for's indexes
+
+	// Initialize new_matrix
+	for(x=0; x < SIZE; x++){
+		for(y=0; y < SIZE; y++){
 				new_matrix[x][y] =0;
 		}
-
 	}
-
-	for(x=0;x<SIZE;++x)
-	{
-		for(y=0;y<SIZE;++y)
-		{
+	// Copy matrix in new_matrix
+	for(x = 0; x < SIZE; x++){
+		for(y = 0; y < SIZE; y++){
 				new_matrix[x][y]=matrix[x][y];
 		}
-
 	}
 
-	int f,c,i,j;
   for ( f = 0; f < SIZE; f++) {					//go over rows big matrix
     for ( c = 0; c < SIZE; c++) {				//go over columns big matrix
 
-      int live = 0;																//inicialize number of alive cell in the neighbour
+      int live = 0;											//inicialize number of alive cell in the neighbour
 
       for ( i = 0; i < 3; i++) {						//go over rows matrix 3x3
         for ( j = 0; j < 3; j++) {					//go over columns matrix 3x3
@@ -49,13 +44,10 @@ void getNewMatrix(int** matrix, int SIZE){
     }
   }
 
-
-	for(x=0;x<SIZE;++x)
-	{
-		for(y=0;y<SIZE;++y)
-		{
-				matrix[x][y]=new_matrix[x][y];
+	for(x = 0; x < SIZE; x++) {
+		for(y = 0; y < SIZE; y++){
+				matrix[x][y] = new_matrix[x][y];
 		}
-
 	}
+	
 }
