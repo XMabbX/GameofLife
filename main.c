@@ -31,13 +31,32 @@ while(!SIZE);
 int **matrix = (int **)malloc(SIZE * sizeof(int*));
 for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
 
-  initscr();
-  refresh();
-  matrix[1][2] = 1;
-  matrix[1][3] = 1;
-  matrix[2][1] = 1;
-  matrix[2][2] = 1;
-  matrix[3][2] = 1;
+
+int half = floor(SIZE/2);
+switch (option) {
+  case 1:
+    matrix[half-1][half]=0;
+    matrix[half-1][half+1]=0;
+    matrix[half][half-1]=0;
+    matrix[half][half]=0;
+    matrix[half+1][half]=0;
+  break;
+  case 2:
+
+  break;
+  case 3:
+
+  break;
+}
+
+for(x=0;x<SIZE;++x)
+{
+  for(y=0;y<SIZE;++y)
+  {
+      matrix[x][y] =1;
+  }
+
+}
 
   for(age=1;age < limit;++age){
     //Bucle central del joc
@@ -46,7 +65,7 @@ for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
     {
       for(y=0;y<SIZE;++y)
       {
-          if(matrix[x][y]==1)
+          if(matrix[x][y]==0)
           {
             mvaddch(x,y,'X');
           }else{
@@ -61,8 +80,6 @@ for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
     getch();
 
     getNewMatrix(matrix, SIZE);
-    refresh();
-    getch();
 
   }
 

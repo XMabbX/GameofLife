@@ -6,12 +6,6 @@ void getNewMatrix(int** matrix, int SIZE){
 	int new_matrix[SIZE][SIZE];
 	int x,y,f,c,i,j; 	// for's indexes
 
-	// Initialize new_matrix
-	for(x=0; x < SIZE; x++){
-		for(y=0; y < SIZE; y++){
-				new_matrix[x][y] =0;
-		}
-	}
 	// Copy matrix in new_matrix
 	for(x = 0; x < SIZE; x++){
 		for(y = 0; y < SIZE; y++){
@@ -49,5 +43,5 @@ void getNewMatrix(int** matrix, int SIZE){
 				matrix[x][y] = new_matrix[x][y];
 		}
 	}
-	
+
 }
