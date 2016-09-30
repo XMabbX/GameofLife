@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-int getNewMatrix(){
+void getNewMatrix(int** matrix, int SIZE){
 
 	int new_matrix[SIZE][SIZE];
+
+	mempocy(new_matrix, matrix, SIZE*SIZE*sizeof(int));
 
   for (int f = 0; f < SIZE; f++) {					//go over rows big matrix
     for (int c = 0; c < SIZE; c++) {				//go over columns big matrix
 
-      live = 0;																//inicialize number of alive cell in the neighbour
+      int live = 0;																//inicialize number of alive cell in the neighbour
 
       for (int i = 0; i < 3; i++) {						//go over rows matrix 3x3
         for (int j = 0; j < 3; j++) {					//go over columns matrix 3x3
@@ -28,5 +30,5 @@ int getNewMatrix(){
       }
     }
   }
-	return new_matrix;
+	matrix = new_matrix;
 }

@@ -36,7 +36,7 @@ refresh();
   for(age=1;age < limit;++age){
     //Bucle central del joc
 
-    //refreshmatrix(matrix);
+    getNewMatrix(matrix, SIZE);
 
     refresh();
     getch();
