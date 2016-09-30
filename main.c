@@ -4,6 +4,7 @@
 #include <ncurses.h>
 #include "var.h"
 #include <string.h>
+#include <math.h>
 
 void clean_stdin(void)
 {
@@ -15,7 +16,7 @@ void clean_stdin(void)
 
 int main(){
 
-  int age,i,limit=100;
+  int age,i,limit=10000;
   int x,y;
   int option; // This variable will use option to simulate
   printf("\033[2J\033[1;1H");
@@ -31,8 +32,15 @@ while(!SIZE);
 int **matrix = (int **)malloc(SIZE * sizeof(int*));
 for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
 
+for(x = 0; x < SIZE; x++){
+  for(y = 0; y < SIZE; y++){
+      matrix[x][y]=1;
+  }
+}
 
-int half = floor(SIZE/2);
+initscr();
+refresh();
+int half = SIZE/2;
 switch (option) {
   case 1:
     matrix[half-1][half]=0;
@@ -42,20 +50,18 @@ switch (option) {
     matrix[half+1][half]=0;
   break;
   case 2:
+    matrix[half][half-4]=0;
+    matrix[half][half-3]=0;
+    matrix[half+1][half-3]=0;
+    matrix[half-1][half+2]=0;
+    matrix[half+1][half+1]=0;
+    matrix[half+1][half+2]=0;
+    matrix[half+1][half+3]=0;
 
   break;
   case 3:
 
   break;
-}
-
-for(x=0;x<SIZE;++x)
-{
-  for(y=0;y<SIZE;++y)
-  {
-      matrix[x][y] =1;
-  }
-
 }
 
   for(age=1;age < limit;++age){
@@ -75,6 +81,9 @@ for(x=0;x<SIZE;++x)
       }
 
     }
+    //mvaddch(SIZE+1,1,'Generation:');
+    char c = age + '0';
+    mvaddch(SIZE+1,1,c);
 
     refresh();
     getch();
