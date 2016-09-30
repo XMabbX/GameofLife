@@ -15,7 +15,8 @@ void clean_stdin(void)
 
 int main(){
 
-  int age,i,limit=2;
+  int age,i,limit=100;
+  int x,y;
   int option; // This variable will use option to simulate
   printf("\033[2J\033[1;1H");
 
@@ -28,18 +29,41 @@ printf("Insert the size of the universe. ");
 scanf("%d", &SIZE); // Take data from command line
 while(!SIZE);
 int **matrix = (int **)malloc(SIZE * sizeof(int*));
-  for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
+for(i = 0; i < SIZE; i++) matrix[i] = (int *)malloc(SIZE * sizeof(int));
 
-initscr();
-refresh();
+  initscr();
+  refresh();
+  matrix[1][2] = 1;
+  matrix[1][3] = 1;
+  matrix[2][1] = 1;
+  matrix[2][2] = 1;
+  matrix[3][2] = 1;
 
   for(age=1;age < limit;++age){
     //Bucle central del joc
 
-    getNewMatrix(matrix, SIZE);
+    for(x=0;x<SIZE;++x)
+    {
+      for(y=0;y<SIZE;++y)
+      {
+          if(matrix[x][y]==1)
+          {
+            mvaddch(x,y,'X');
+          }else{
+            mvaddch(x,y,' ');
+          }
+
+      }
+
+    }
 
     refresh();
     getch();
+
+    getNewMatrix(matrix, SIZE);
+    refresh();
+    getch();
+
   }
 
   endwin();
