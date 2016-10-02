@@ -81,7 +81,6 @@ switch (option) {
       }
 
     }
-    //mvaddch(SIZE+1,1,'Generation:');
     char c = age + '0';
     mvaddch(SIZE+1,1,c);
 
