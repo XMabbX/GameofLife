@@ -1,4 +1,7 @@
-//Coder 3
+/////////////
+// Coder 3 //
+/////////////
+
 /*
    ************************ Game of Life **************************
   * # Options Availables                                           *
@@ -7,19 +10,19 @@
  *   3 - Acorn                                                      *
   *  0 - Exit                                                      *
    ****************************************************************
-ype one of the options: */
+Type one of the options: */
+
 #include "mainMenu.h"
 
 int mainMenu() {
-  enum option_num {Exit, TheRpentino, DieHard, Acorn};
+
   // Declaration of local variables
-  //option_num option = 0;
+  enum option_num {Exit, TheRpentino, DieHard, Acorn};
   int readOption;
   char voidVar;
 
-
   /**
-  * Create the MENU
+  * Print the MENU
   */
   printf("\033[2J\033[1;1H");
   repite:
@@ -53,23 +56,17 @@ int mainMenu() {
         printf("%s\n\r",DIE_HARD);
     break;
     case Acorn:
-          printf("\n\r%s",OPTION_SELECTED);
-          printf("%s\n\r",ACORN);
+        printf("\n\r%s",OPTION_SELECTED);
+        printf("%s\n\r",ACORN);
     break;
     default:
-          printf("\033[2J\033[1;1H");
-          printf("\n\r%s\n\r",ERROR_OPTION);
-          clean_stdin();
-          scanf("%c",&voidVar); // Wait until reads something
-
-          goto  repite;
+        printf("\033[2J\033[1;1H");
+        printf("\n\r%s\n\r",ERROR_OPTION);
+        clean_stdin();
+        scanf("%c",&voidVar); // Wait until reads something
+        goto  repite;
     break;
   }
-  /**
-  * Print the option
-  */
-
-
 
   return readOption;
 }
