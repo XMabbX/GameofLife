@@ -39,9 +39,9 @@ void initDiehard(int **matrix, int size) {
 
 void initAcorn(int **matrix, int size) {
   int half = size / 2;
-  matrix[half+1][half-4]=0;
-  matrix[half-1][half-3]=0;
   matrix[half+1][half-3]=0;
+  matrix[half-1][half-2]=0;
+  matrix[half+1][half-2]=0;
   matrix[half][half]=0;
   matrix[half+1][half+1]=0;
   matrix[half+1][half+2]=0;
