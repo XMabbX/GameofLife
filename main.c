@@ -65,9 +65,6 @@ int main(){
         }
       }
 
-      char c = age + '0';
-      mvaddch(size+1,1,c);
-
       refresh();
       getch();
 
